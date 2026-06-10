@@ -10,4 +10,5 @@ package com.uvm.inventariojuego.services;
  */
 public interface LoggerService {
     
+    public void salvarEvento(String desc);
 }

@@ -10,4 +10,20 @@
         <maven.compiler.release>21</maven.compiler.release>
         <exec.mainClass>com.uvm.inventariojuego.InventarioJuego</exec.mainClass>
     </properties>
+    <dependencies>
+        <!-- Source: https://mvnrepository.com/artifact/jakarta.xml.bind/jakarta.xml.bind-api -->
+        <dependency>
+            <groupId>jakarta.xml.bind</groupId>
+            <artifactId>jakarta.xml.bind-api</artifactId>
+            <version>4.0.2</version>
+            <type>jar</type>
+        </dependency>
+        <!-- Source: https://mvnrepository.com/artifact/org.glassfish.jaxb/jaxb-runtime -->
+        <dependency>
+            <groupId>org.glassfish.jaxb</groupId>
+            <artifactId>jaxb-runtime</artifactId>
+            <version>4.0.9</version>
+            <scope>compile</scope>
+        </dependency>
+    </dependencies>
 </project>
