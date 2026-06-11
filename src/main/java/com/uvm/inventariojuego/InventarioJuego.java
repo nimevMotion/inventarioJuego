@@ -1,5 +1,7 @@
 package com.uvm.inventariojuego;
 
+import com.uvm.inventariojuego.services.LoggerService;
+import com.uvm.inventariojuego.services.impl.LogImpl;
 import java.util.Scanner;
 
 public class InventarioJuego {
@@ -7,6 +9,7 @@ public class InventarioJuego {
     public static void main(String args[]) {
 
         Scanner teclado = new Scanner(System.in);
+        LoggerService logger = new LogImpl();
 
         int botonSalir = 0;
         int opcion = 0;
@@ -23,7 +26,11 @@ public class InventarioJuego {
 
                 switch (opcion) {
                     case 1 -> System.out.println("-> [Espada de Hierro]: Ataque +15. Ideal para matar dragones.");
-                    case 2 -> System.out.println("-> [Pocion Roja]: Recupera 50 puntos de salud.");
+                    case 2 -> 
+                    {
+                        System.out.println("-> [Pocion Roja]: Recupera 50 puntos de salud.");
+                        logger.salvarEvento("-> [Pocion Roja]: Recupera 50 puntos de salud.");
+                    }
                     case 3 -> {
                         System.out.println("-> Cerrando mochila... ¡Buena suerte!");
                         botonSalir = 1;

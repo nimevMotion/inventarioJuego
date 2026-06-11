@@ -7,22 +7,28 @@ package com.uvm.inventariojuego.model;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
-import jakarta.xml.bind.annotation.XmlRootElement;
 import java.util.Date;
 
 /**
  *
  * @author nimev
  */
-@XmlRootElement(name = "Evento")
 @XmlAccessorType(XmlAccessType.FIELD)
 public class Evento {
-    
+
     @XmlElement
     private Date dateEvento;
-    
+
     @XmlElement
     private String descripcion;
+
+    public Evento() {
+    }
+
+    public Evento(Date dateEvento, String descripcion) {
+        this.dateEvento = dateEvento;
+        this.descripcion = descripcion;
+    }
 
     public String getDescripcion() {
         return descripcion;
@@ -39,6 +45,4 @@ public class Evento {
     public void setDateEvento(Date dateEvento) {
         this.dateEvento = dateEvento;
     }
-    
-    
 }

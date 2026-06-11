@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Eventos>
+    <evento>
+        <dateEvento>2026-06-10T20:08:58.534-06:00</dateEvento>
+        <descripcion>-&gt; [Pocion Roja]: Recupera 50 puntos de salud.</descripcion>
+    </evento>
+    <evento>
+        <dateEvento>2026-06-10T20:09:55.062-06:00</dateEvento>
+        <descripcion>-&gt; [Pocion Roja]: Recupera 50 puntos de salud.</descripcion>
+    </evento>
+    <evento>
+        <dateEvento>2026-06-10T20:09:56.920-06:00</dateEvento>
+        <descripcion>-&gt; [Pocion Roja]: Recupera 50 puntos de salud.</descripcion>
+    </evento>
+    <evento>
+        <dateEvento>2026-06-10T20:09:59.862-06:00</dateEvento>
+        <descripcion>-&gt; [Pocion Roja]: Recupera 50 puntos de salud.</descripcion>
+    </evento>
+    <evento>
+        <dateEvento>2026-06-10T20:10:01.280-06:00</dateEvento>
+        <descripcion>-&gt; [Pocion Roja]: Recupera 50 puntos de salud.</descripcion>
+    </evento>
+    <evento>
+        <dateEvento>2026-06-10T20:10:02.688-06:00</dateEvento>
+        <descripcion>-&gt; [Pocion Roja]: Recupera 50 puntos de salud.</descripcion>
+    </evento>
+</Eventos>
