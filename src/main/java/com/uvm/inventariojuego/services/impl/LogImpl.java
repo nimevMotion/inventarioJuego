@@ -72,7 +72,6 @@ public class LogImpl implements LoggerService {
                 Marshaller marshaller = context.createMarshaller();
                 marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
 
-                // JAXB reescribe el archivo con la lista vieja + el nuevo integrante
                 marshaller.marshal(eventos, log);
                 System.out.println(log.getAbsolutePath());
             }

@@ -4,10 +4,19 @@
  */
 package com.uvm.inventariojuego.services;
 
+import com.uvm.inventariojuego.model.Item;
+
 /**
  *
  * @author nimev
  */
 public interface FileService {
     
+    public boolean salvarItem();
+    
+    public boolean modificarItem();
+    
+    public Item getItem();
+    
+    public boolean eliminarItem();
 }

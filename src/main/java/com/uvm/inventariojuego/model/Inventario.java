@@ -9,27 +9,24 @@ import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlRootElement;
 import java.util.List;
+
 /**
  *
  * @author nimev
  */
-@XmlRootElement(name = "Eventos")
+@XmlRootElement(name = "Inventario")
 @XmlAccessorType(XmlAccessType.FIELD)
-public class Eventos {
-        
-    @XmlElement(name = "evento")
-    private List<Evento> listaEventos;
-
-    public List<Evento> getListaEventos() {
-        return listaEventos;
-    }
-
-    public void setListaEventos(List<Evento> listaEventos) {
-        this.listaEventos = listaEventos;
-    }
+public class Inventario {
     
-    public void addEvento(Evento evento)
-    {
-        this.listaEventos.add(evento);
+    @XmlElement(name = "item")
+    private List<Item> items;
+
+    public List<Item> getItems() {
+        return items;
     }
+
+    public void setItems(List<Item> items) {
+        this.items = items;
+    }
+ 
 }
