@@ -1,5 +1,6 @@
 package com.uvm.inventariojuego.services.impl;
 
+import com.uvm.inventariojuego.config.JAXBConfig;
 import com.uvm.inventariojuego.model.Evento;
 import com.uvm.inventariojuego.model.Eventos;
 import com.uvm.inventariojuego.services.LoggerService;
@@ -32,7 +33,8 @@ public class LogImpl implements LoggerService {
             //valida si el archivo existe 
             File log = new File(Constantes.PATH_ARCHIVOS + File.separator + Constantes.FILENAME_LOG);
 
-            JAXBContext context = JAXBContext.newInstance(Eventos.class);
+//            JAXBContext context = JAXBContext.newInstance(Eventos.class);
+            JAXBContext context = JAXBConfig.getContext();
 
             if (!log.exists()) {
                 //Creara el archivo nuevo

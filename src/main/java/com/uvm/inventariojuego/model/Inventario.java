@@ -28,5 +28,32 @@ public class Inventario {
     public void setItems(List<Item> items) {
         this.items = items;
     }
+    
+    public void agregarItem(Item item)
+    {
+        for(Item it : this.items)
+        {
+            if(it.getNombre().equalsIgnoreCase(it.getDesc()))
+            {
+                it.setCantidad( it.getCantidad() + 1);
+                return;
+            }
+        }
+        
+        this.items.add(item);
+    }
+    
+    public void eliminarItem(Item item)
+    {
+        for(Item it : this.items)
+        {
+            if(it.getNombre().equalsIgnoreCase(it.getDesc()))
+            {
+                if(true)
+                it.setCantidad( it.getCantidad() + 1);
+                return;
+            }
+        }
+    }
  
 }
