@@ -2,12 +2,13 @@ package com.uvm.inventariojuego.services.impl;
 
 import com.uvm.inventariojuego.config.JAXBConfig;
 import com.uvm.inventariojuego.model.Inventario;
-import com.uvm.inventariojuego.model.Item;
 import com.uvm.inventariojuego.services.FileService;
 import com.uvm.inventariojuego.util.Constantes;
 import jakarta.xml.bind.JAXBContext;
+import jakarta.xml.bind.Marshaller;
 import jakarta.xml.bind.Unmarshaller;
 import java.io.File;
+import java.io.FileWriter;
 
 /**
  *
@@ -15,32 +16,53 @@ import java.io.File;
  */
 public class FileImpl implements FileService{
  
-    public boolean salvarItem()
+    public boolean salvarIventario(Inventario inv)
     {
         try{
             JAXBContext context = JAXBConfig.getContext();
-            File xml = new File(Constantes.PATH_ARCHIVOS + File.separator + Constantes.FILENAME_INVENTARIO);
-            Unmarshaller unmarshaller = context.createUnmarshaller();
-            Inventario inventario = (Inventario) unmarshaller.unmarshal(xml);
+            FileWriter xml = new FileWriter(Constantes.PATH_ARCHIVOS + File.separator + Constantes.FILENAME_INVENTARIO);
+            Marshaller marshaller = context.createMarshaller();
+            marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
+            marshaller.marshal(inv, xml);
+            return true;
+            
         }catch(Exception e)
         {
             e.printStackTrace();
         }
-        return true;
+        return false;
     }
     
-    public boolean modificarItem()
+    public Inventario getInventario()
     {
-        return true;
-    }
-    
-    public Item getItem()
-    {
+        Inventario inventario = null;
+        try{
+            JAXBContext context = JAXBConfig.getContext();
+            File xml = new File(Constantes.PATH_ARCHIVOS + File.separator + Constantes.FILENAME_INVENTARIO);
+            
+            if(!xml.exists())
+            {
+//                System.out.println("Se crear inventario");
+//                inventario = new Inventario();
+//                
+//                File carpeta = xml.getParentFile();
+//                
+//                if(!carpeta.exists())
+//                    carpeta.mkdirs();
+//                
+//                Marshaller marshaller = context.createMarshaller();
+//                marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
+                return new Inventario();
+            }
+            Unmarshaller unmarshaller = context.createUnmarshaller();
+            inventario = (Inventario) unmarshaller.unmarshal(xml);
+            return inventario;
+            
+        }catch(Exception e)
+        {
+            e.printStackTrace();
+        }
         return null;
     }
     
-    public boolean eliminarItem()
-    {
-        return true;
-    }
 }

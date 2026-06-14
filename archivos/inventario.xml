@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Inventario>
+    <item>
+        <nombre>Arma</nombre>
+        <desc>Cuchillo</desc>
+        <tipo>Arma</tipo>
+        <cantidad>1</cantidad>
+        <usos/>
+    </item>
+</Inventario>

@@ -9,6 +9,7 @@ import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlRootElement;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -18,7 +19,7 @@ import java.util.List;
 @XmlRootElement(name = "Inventario")
 @XmlAccessorType(XmlAccessType.FIELD)
 public class Inventario {
-    
+
     @XmlElement(name = "item")
     private List<Item> items;
 
@@ -29,15 +30,12 @@ public class Inventario {
     public void setItems(List<Item> items) {
         this.items = items;
     }
-    
-    public void agregarItem(Item item)
-    {
-        for(Item it : this.items)
-        {
-            if(it.getNombre().equalsIgnoreCase(item.getNombre()))
-            {
+
+    public void agregarItem(Item item) {
+        for (Item it : this.items) {
+            if (it.getNombre().equalsIgnoreCase(item.getNombre())) {
                 it.setCantidad(
-                    it.getCantidad() + item.getCantidad()
+                        it.getCantidad() + item.getCantidad()
                 );
                 return;
             }
@@ -46,19 +44,37 @@ public class Inventario {
     }
 
     public Inventario() {
-    this.items = new ArrayList<>();   
-}
-    public void eliminarItem(Item item)
-    {
-        for(Item it : this.items)
-        {
-            if(it.getNombre().equalsIgnoreCase(it.getDesc()))
-            {
-                if(true)
-                it.setCantidad( it.getCantidad() + 1);
-                return;
+        this.items = new ArrayList<>();
+    }
+
+    public void eliminarItem(Item item) {
+        Iterator<Item> iterator = this.items.iterator();
+
+        while (iterator.hasNext()) {
+            Item it = iterator.next();
+            if (it.getNombre().equalsIgnoreCase(item.getNombre())) {
+                if (it.getCantidad() > 1) {
+                    it.setCantidad(it.getCantidad() - 1);
+                } else {
+                    iterator.remove(); 
+                }
+                return; 
             }
         }
     }
- 
+    
+    public Item getItem(String nombre)
+    {
+        Iterator<Item> iterator = this.items.iterator();
+        
+        while(iterator.hasNext())
+        {
+            Item item = iterator.next();
+            if(item.getNombre().equalsIgnoreCase(nombre))
+            {
+                return item;
+            }
+        }
+        return null;
+    }
 }

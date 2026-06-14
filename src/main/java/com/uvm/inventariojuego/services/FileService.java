@@ -4,7 +4,7 @@
  */
 package com.uvm.inventariojuego.services;
 
-import com.uvm.inventariojuego.model.Item;
+import com.uvm.inventariojuego.model.Inventario;
 
 /**
  *
@@ -12,11 +12,6 @@ import com.uvm.inventariojuego.model.Item;
  */
 public interface FileService {
     
-    public boolean salvarItem();
-    
-    public boolean modificarItem();
-    
-    public Item getItem();
-    
-    public boolean eliminarItem();
+    public boolean salvarIventario(Inventario inv);
+    public Inventario getInventario();
 }

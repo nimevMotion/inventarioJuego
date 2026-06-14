@@ -4,10 +4,14 @@
  */
 package com.uvm.inventariojuego.services;
 
+import com.uvm.inventariojuego.model.Item;
+
 /**
  *
  * @author nimev
  */
 public interface InventarioService {
+    
+    public boolean agregarItem(Item item);
     
 }
