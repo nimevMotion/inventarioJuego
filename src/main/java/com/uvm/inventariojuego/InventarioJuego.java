@@ -3,13 +3,23 @@ package com.uvm.inventariojuego;
 import com.uvm.inventariojuego.services.LoggerService;
 import com.uvm.inventariojuego.services.impl.LogImpl;
 import java.util.Scanner;
-
+import com.uvm.inventariojuego.model.Inventario;
+import com.uvm.inventariojuego.model.Item;
 public class InventarioJuego {
 
     public static void main(String args[]) {
 
         Scanner teclado = new Scanner(System.in);
         LoggerService logger = new LogImpl();
+        Inventario inventario = new Inventario();
+        
+        for(Item item : inventario.getItems())
+        {
+            System.out.println("Nombre: " + item.getNombre());
+            System.out.println("Descripcion: " + item.getDesc());
+            System.out.println("Tipo: " + item.getTipo());
+            System.out.println("Cantidad: " + item.getCantidad());
+        }
 
         int botonSalir = 0;
         int opcion = 0;
@@ -18,18 +28,45 @@ public class InventarioJuego {
 
             try {
                 System.out.println("\n=== INVENTARIO DE TU PERSONAJE ===");
-                System.out.println("2. Ver Pocion de vida");
-                System.out.println("3. Salir del juego");
+                System.out.println("1. Registrar Item");
+                System.out.println("2. Ver Inventario");
+                System.out.println("3. Salir");
                 System.out.println("Elige una opcion: ");
-
                 opcion = teclado.nextInt();
 
                 switch (opcion) {
-                    case 1 -> System.out.println("-> [Espada de Hierro]: Ataque +15. Ideal para matar dragones.");
-                    case 2 -> 
-                    {
-                        System.out.println("-> [Pocion Roja]: Recupera 50 puntos de salud.");
-                        logger.salvarEvento("-> [Pocion Roja]: Recupera 50 puntos de salud.");
+                    case 1 -> {
+
+                        teclado.nextLine(); 
+                        Item item = new Item();
+                        System.out.print("Nombre: ");
+                        item.setNombre(teclado.nextLine());
+                        
+                        System.out.print("Descripcion: ");
+                        item.setDesc(teclado.nextLine());
+
+                        System.out.print("Tipo (Arma, Armadura, Pocion): ");
+                        item.setTipo(teclado.nextLine());
+
+                        System.out.print("Cantidad: ");
+                        item.setCantidad(teclado.nextInt());
+
+                        inventario.agregarItem(item);
+
+                        System.out.println("Objeto registrado correctamente.");
+                    }
+                    case 2 -> {
+
+                        System.out.println("\n=== INVENTARIO ===");
+
+                        for(Item item : inventario.getItems())
+                        {
+                            System.out.println("----------------");
+                            System.out.println("Nombre: " + item.getNombre());
+                            System.out.println("Descripcion: " + item.getDesc());
+                            System.out.println("Tipo: " + item.getTipo());
+                            System.out.println("Cantidad: " + item.getCantidad());
+                        }
                     }
                     case 3 -> {
                         System.out.println("-> Cerrando mochila... ¡Buena suerte!");

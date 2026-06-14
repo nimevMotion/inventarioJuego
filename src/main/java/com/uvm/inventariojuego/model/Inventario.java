@@ -8,6 +8,7 @@ import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlRootElement;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -33,16 +34,20 @@ public class Inventario {
     {
         for(Item it : this.items)
         {
-            if(it.getNombre().equalsIgnoreCase(it.getDesc()))
+            if(it.getNombre().equalsIgnoreCase(item.getNombre()))
             {
-                it.setCantidad( it.getCantidad() + 1);
+                it.setCantidad(
+                    it.getCantidad() + item.getCantidad()
+                );
                 return;
             }
         }
-        
         this.items.add(item);
     }
-    
+
+    public Inventario() {
+    this.items = new ArrayList<>();   
+}
     public void eliminarItem(Item item)
     {
         for(Item it : this.items)
