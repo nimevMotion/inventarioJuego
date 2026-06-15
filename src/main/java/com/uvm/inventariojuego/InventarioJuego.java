@@ -8,7 +8,7 @@ import com.uvm.inventariojuego.services.InventarioService;
 import com.uvm.inventariojuego.services.impl.InventarioImpl;
 import java.util.List;
 
-public class InventarioJuego {   
+public class InventarioJuego {
 
     public static void main(String args[]) {
 
@@ -16,7 +16,7 @@ public class InventarioJuego {
         LoggerService logger = new LogImpl();
 //        Inventario inventario = new Inventario();
         InventarioService inventario = new InventarioImpl();
-        
+
 //        for(Item item : inventario.getItems())
 //        {
 //            System.out.println("Nombre: " + item.getNombre());
@@ -24,14 +24,13 @@ public class InventarioJuego {
 //            System.out.println("Tipo: " + item.getTipo());
 //            System.out.println("Cantidad: " + item.getCantidad());
 //        }
-
         int botonSalir = 0;
-        int opcion = 0;       
-        
+        int opcion = 0;
+
         while (botonSalir == 0) {
 
             try {
-                
+
                 System.out.println("\n=== INVENTARIO DE TU PERSONAJE ===");
                 System.out.println("1. Gestionar Inventario");
                 System.out.println("2. Buscar");
@@ -110,34 +109,37 @@ public class InventarioJuego {
 //                                                System.out.println("-> Numero invalido.");
 //                                            }
 //                                        }
-inventario.modificarItem();
+                                        inventario.modificarItem();
                                     }
                                     case 3 -> {
-                                        List<Item> items = inventario.getItems();
-                                        if (items.isEmpty()) {
-                                            System.out.println("-> No hay objetos en el inventario.");
-                                        } else {                                            
-                                            System.out.println("\n=== ELIMINAR OBJETO ===\n");
-                                            for (int i = 0; i < items.size(); i++) {
-                                                System.out.println(i + ". " + items.get(i).getNombre()
-                                                                 + " || " + items.get(i).getTipo()
-                                                                 + " || Cantidad: " + items.get(i).getCantidad());
-                                            }                                            
-                                            System.out.print("Numero de objeto a eliminar: ");
-                                            int indice = teclado.nextInt();
+//                                        List<Item> items = inventario.getItems();
+//                                        if (items.isEmpty()) {
+//                                            System.out.println("-> No hay objetos en el inventario.");
+//                                        } else {
+//                                            System.out.println("\n=== ELIMINAR OBJETO ===\n");
+//                                            for (int i = 0; i < items.size(); i++) {
+//                                                System.out.println(i + ". " + items.get(i).getNombre()
+//                                                        + " || " + items.get(i).getTipo()
+//                                                        + " || Cantidad: " + items.get(i).getCantidad());
+//                                            }
+//                                            System.out.print("Numero de objeto a eliminar: ");
+//                                            int indice = teclado.nextInt();
+//
+//                                            if (indice >= 0 && indice < items.size()) {
+//                                                String nombre = items.get(indice).getNombre();
+//                                                items.remove(indice);
+//                                                System.out.println("-> " + nombre + " eliminado correctamente.");
+//                                            } else {
+//                                                System.out.println("-> Numero invalido.");
+//                                            }
+//                                        }
+                                        inventario.eliminarItem();
 
-                                            if (indice >= 0 && indice < items.size()) {
-                                                String nombre = items.get(indice).getNombre(); 
-                                                items.remove(indice);
-                                                System.out.println("-> " + nombre + " eliminado correctamente.");
-                                            } else {
-                                                System.out.println("-> Numero invalido.");
-                                            }
-                                        }
-                                        
                                     }
-                                    case 4 -> enSubMenu = false;
-                                    default -> System.out.println("-> Opción invalida.");
+                                    case 4 ->
+                                        enSubMenu = false;
+                                    default ->
+                                        System.out.println("-> Opción invalida.");
                                 }
                             } catch (Exception e) {
                                 System.out.println("-> Error: ¡Debes ingresar un numero entero!");
@@ -154,7 +156,8 @@ inventario.modificarItem();
                         System.out.println("-> Cerrando mochila... ¡Buena suerte!");
                         botonSalir = 1;
                     }
-                    default -> System.out.println("-> Opción invalida. Intenta con 1, 2 o 3.");
+                    default ->
+                        System.out.println("-> Opción invalida. Intenta con 1, 2 o 3.");
                 }
             } catch (Exception e) {
                 System.out.println("-> Error: ¡Debes ingresar un numero entero!");
