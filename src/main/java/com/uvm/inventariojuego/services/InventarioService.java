@@ -4,6 +4,7 @@
  */
 package com.uvm.inventariojuego.services;
 
+import com.uvm.inventariojuego.model.Inventario;
 import com.uvm.inventariojuego.model.Item;
 
 /**
@@ -14,6 +15,10 @@ public interface InventarioService {
     
     public boolean agregarItem(Item item);
 
-    public Iterable<Item> getItems();
+    public Inventario getItems();
+    
+    public void modificarItem() ;
+    
+    public void eliminarItem();
     
 }
