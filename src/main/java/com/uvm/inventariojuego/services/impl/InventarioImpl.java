@@ -5,6 +5,7 @@ import com.uvm.inventariojuego.model.Item;
 import com.uvm.inventariojuego.services.FileService;
 import com.uvm.inventariojuego.services.InventarioService;
 import com.uvm.inventariojuego.services.LoggerService;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Scanner;
 
@@ -61,12 +62,14 @@ public class InventarioImpl implements InventarioService {
 //
 //                System.out.print("Nuevo tipo (" + item.getTipo() + "): ");
 //                item.setTipo(teclado.nextLine());
-                System.out.print("Se agrega un " + item.getNombre() + " al inventario");
+                System.out.println("Que cantidad quieres agregar del objeto " + item.getNombre() + ":");
                 item.setCantidad(teclado.nextInt());
 
                 inventario.agregarItem(item);
                 fileService.salvarIventario(inventario);
                 System.out.println("-> Objeto modificado correctamente.");
+//                teclado.close();
+                return;
             } else {
                 System.out.println("-> Numero invalido.");
                 return;
@@ -109,5 +112,28 @@ public class InventarioImpl implements InventarioService {
             return null;
         }
         return inventario;
+    }
+    
+    @Override
+    public void buscarItem(String nombre)
+    {
+        Inventario inventario = fileService.getInventario();
+        Iterator<Item> it = inventario.getItems().iterator();
+        
+        while(it.hasNext())
+        {
+            Item item = it.next();
+            System.out.println(item.getNombre());
+            if(item.getNombre().equalsIgnoreCase(nombre.trim()))
+            {
+                System.out.println("Se ha encontrado el Item: " + item.getNombre());
+                System.out.println("Descripcion: " + item.getDesc());
+                System.out.println("Tipo: " + item.getTipo());
+                System.out.println("Cantidad: " + item.getCantidad());
+                return;
+            }
+        }
+        
+        System.out.println("No existe el objeto: " + nombre);
     }
 }

@@ -21,4 +21,6 @@ public interface InventarioService {
     
     public void eliminarItem();
     
+    public void buscarItem(String nombre);
+    
 }

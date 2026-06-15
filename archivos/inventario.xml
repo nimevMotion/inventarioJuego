@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <Inventario>
     <item>
-        <nombre>Arma</nombre>
+        <nombre>Espadon</nombre>
         <desc>Cuchillo</desc>
         <tipo>Arma</tipo>
-        <cantidad>7</cantidad>
+        <cantidad>6</cantidad>
         <usos/>
     </item>
     <item>
-        <nombre>Arma perrona</nombre>
-        <desc>Prueba</desc>
+        <nombre>Libro de hechizos</nombre>
+        <desc>Arma magica</desc>
         <tipo>Arma</tipo>
-        <cantidad>3</cantidad>
+        <cantidad>2</cantidad>
         <usos/>
     </item>
 </Inventario>

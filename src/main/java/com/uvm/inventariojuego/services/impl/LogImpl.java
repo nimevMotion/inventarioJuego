@@ -11,6 +11,7 @@ import jakarta.xml.bind.Unmarshaller;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -76,6 +77,48 @@ public class LogImpl implements LoggerService {
 
                 marshaller.marshal(eventos, log);
                 System.out.println(log.getAbsolutePath());
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void getLog() {
+        Eventos eventos = null;
+        try {
+
+            //valida si el archivo existe 
+            File log = new File(Constantes.PATH_ARCHIVOS + File.separator + Constantes.FILENAME_LOG);
+
+//            JAXBContext context = JAXBContext.newInstance(Eventos.class);
+            JAXBContext context = JAXBConfig.getContext();
+
+            if (!log.exists()) {
+                //Creara el archivo nuevo
+                System.out.println("No hay eventos en el log");
+
+            } else {
+
+                Unmarshaller unmarshaller = context.createUnmarshaller();
+                eventos = (Eventos) unmarshaller.unmarshal(log);
+                
+                Iterator<Evento> it = eventos.getListaEventos().iterator();
+                
+                int i = 0;
+                while(it.hasNext())
+                {
+                    Evento evento = it.next();
+                    if(i > 10)
+                        break;
+                    
+                    System.out.println((i+1) + ". Evento: " + evento.getDescripcion());
+                    System.out.println("Fecha: " + evento.getDateEvento());
+                    System.out.println("=========================================================");
+                            
+                    i++;
+                }
+
             }
 
         } catch (Exception e) {

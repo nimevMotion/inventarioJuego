@@ -1,21 +1,20 @@
 package com.uvm.inventariojuego;
 
-import com.uvm.inventariojuego.services.LoggerService;
-import com.uvm.inventariojuego.services.impl.LogImpl;
 import java.util.Scanner;
 import com.uvm.inventariojuego.model.Item;
 import com.uvm.inventariojuego.services.InventarioService;
+import com.uvm.inventariojuego.services.LoggerService;
 import com.uvm.inventariojuego.services.impl.InventarioImpl;
-import java.util.List;
+import com.uvm.inventariojuego.services.impl.LogImpl;
 
 public class InventarioJuego {
 
     public static void main(String args[]) {
 
         Scanner teclado = new Scanner(System.in);
-        LoggerService logger = new LogImpl();
 //        Inventario inventario = new Inventario();
         InventarioService inventario = new InventarioImpl();
+        LoggerService logger = new LogImpl();
 
 //        for(Item item : inventario.getItems())
 //        {
@@ -71,68 +70,10 @@ public class InventarioJuego {
                                         System.out.println("Objeto registrado correctamente.");
                                     }
                                     case 2 -> {
-//                                        List<Item> items = inventario.getItems();
-//                                        Inventario inv = inventario.getItems();
-//
-//                                        if (items.isEmpty()) {
-//                                            System.out.println("-> No hay objetos en el inventario.");
-//                                        } else {
-//                                            // Mostrar todos los objetos guardados
-//                                            System.out.println("\n=== MODIFICAR OBJETO ===\n");
-//                                            for (int i = 0; i < items.size(); i++) {
-//                                                System.out.println(i + ". " + items.get(i).getNombre() 
-//                                                                 + " || " + items.get(i).getTipo()
-//                                                                 + " || Cantidad: " + items.get(i).getCantidad());
-//                                            }
-//                                            
-//                                            System.out.print("Numero de objeto a modificar: ");
-//                                            int indice = teclado.nextInt();
-//
-//                                            if (indice >= 0 && indice < items.size()) {
-//                                                Item item = items.get(indice);
-//                                                teclado.nextLine();
-//
-//                                                System.out.print("Nuevo nombre (" + item.getNombre() + "): ");
-//                                                item.setNombre(teclado.nextLine());
-//
-//                                                System.out.print("Nueva descripcion (" + item.getDesc() + "): ");
-//                                                item.setDesc(teclado.nextLine());
-//
-//                                                System.out.print("Nuevo tipo (" + item.getTipo() + "): ");
-//                                                item.setTipo(teclado.nextLine());
-//
-//                                                System.out.print("Nueva cantidad (" + item.getCantidad() + "): ");
-//                                                item.setCantidad(teclado.nextInt());
-//
-//                                                System.out.println("-> Objeto modificado correctamente.");
-//                                            } else {
-//                                                System.out.println("-> Numero invalido.");
-//                                            }
-//                                        }
                                         inventario.modificarItem();
+                                        break;
                                     }
                                     case 3 -> {
-//                                        List<Item> items = inventario.getItems();
-//                                        if (items.isEmpty()) {
-//                                            System.out.println("-> No hay objetos en el inventario.");
-//                                        } else {
-//                                            System.out.println("\n=== ELIMINAR OBJETO ===\n");
-//                                            for (int i = 0; i < items.size(); i++) {
-//                                                System.out.println(i + ". " + items.get(i).getNombre()
-//                                                        + " || " + items.get(i).getTipo()
-//                                                        + " || Cantidad: " + items.get(i).getCantidad());
-//                                            }
-//                                            System.out.print("Numero de objeto a eliminar: ");
-//                                            int indice = teclado.nextInt();
-//
-//                                            if (indice >= 0 && indice < items.size()) {
-//                                                String nombre = items.get(indice).getNombre();
-//                                                items.remove(indice);
-//                                                System.out.println("-> " + nombre + " eliminado correctamente.");
-//                                            } else {
-//                                                System.out.println("-> Numero invalido.");
-//                                            }
-//                                        }
                                         inventario.eliminarItem();
 
                                     }
@@ -149,8 +90,15 @@ public class InventarioJuego {
                     }  // ← Fin case 1
                     case 2 -> {
                         System.out.println("\n=== INVENTARIO ===\n");
+                        teclado.nextLine();
+                        System.out.print("Nombre: ");
+
+                        String nombre = teclado.nextLine();
+                        inventario.buscarItem(nombre);
                     }
                     case 3 -> {
+                        System.out.println("\n=== HISTORIAL ===\n");
+                        logger.getLog();
                     }
                     case 4 -> {
                         System.out.println("-> Cerrando mochila... ¡Buena suerte!");
