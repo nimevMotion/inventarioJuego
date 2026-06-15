@@ -55,19 +55,7 @@ public class InventarioJuego {
 
                                 switch (menu_inv) {
                                     case 1 -> {
-                                        System.out.println("\n=== REGISTAR OBJETO ===\n");
-                                        teclado.nextLine();
-                                        Item item = new Item();
-                                        System.out.print("Nombre: ");
-                                        item.setNombre(teclado.nextLine());
-                                        System.out.print("Descripcion: ");
-                                        item.setDesc(teclado.nextLine());
-                                        System.out.print("Tipo (Arma, Armadura, Pocion): ");
-                                        item.setTipo(teclado.nextLine());
-                                        System.out.print("Cantidad: ");
-                                        item.setCantidad(teclado.nextInt());
-                                        inventario.agregarItem(item);
-                                        System.out.println("Objeto registrado correctamente.");
+                                        inventario.agregarItem();
                                     }
                                     case 2 -> {
                                         inventario.modificarItem();

@@ -31,15 +31,25 @@ public class Inventario {
         this.items = items;
     }
 
+    /**
+     * Agrega un item al inventario.
+     * Si ya existe un item con el mismo nombre (sin distinguir mayúsculas),
+     * en lugar de duplicarlo, suma la cantidad al item existente.
+     *
+     * @param item El item a agregar o cuya cantidad se va a incrementar.
+     */
     public void agregarItem(Item item) {
+        // Busca si ya existe un item con el mismo nombre
         for (Item it : this.items) {
             if (it.getNombre().equalsIgnoreCase(item.getNombre())) {
+                // Si existe, suma la cantidad en lugar de duplicar
                 it.setCantidad(
                         it.getCantidad() + item.getCantidad()
                 );
-                return;
+                return; // Sale del método, ya no es necesario agregar
             }
         }
+        // Si no existe, agrega el item como nuevo
         this.items.add(item);
     }
 

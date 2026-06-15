@@ -19,18 +19,32 @@ public class InventarioImpl implements InventarioService {
         this.log = new LogImpl();
     }
 
-    @Override
-    public boolean agregarItem(Item item) {
+    // La función agrega un item a inventario, permite ingresar nombre, descripción, tipo, cantidad.
+    public boolean agregarItem() {
         Inventario inventario = fileService.getInventario();
         if (inventario == null) {
             return false;
-        } else {
+        } else {             
+            System.out.println("\n=== REGISTAR OBJETO ===\n");            
+            Item item = new Item();                                   
+            Scanner teclado = new Scanner(System.in);
+            System.out.print("Nombre: ");
+            item.setNombre(teclado.nextLine());
+            System.out.print("Descripcion: ");
+            item.setDesc(teclado.nextLine());
+            System.out.print("Tipo (Arma, Armadura, Pocion): ");
+            item.setTipo(teclado.nextLine());
+            System.out.print("Cantidad: ");
+            item.setCantidad(teclado.nextInt());
+            inventario.agregarItem(item);
+            System.out.println("Objeto registrado correctamente.");
             inventario.agregarItem(item);
             log.salvarEvento("Se ha agregago el item " + item.getNombre());
             return fileService.salvarIventario(inventario);
         }
     }
 
+    // La función modifica un item ya creado sumando un registro al item.
     public void modificarItem() {
         Inventario inventario = getItems();
 
@@ -53,7 +67,6 @@ public class InventarioImpl implements InventarioService {
             if (indice >= 0 && indice < items.size()) {
                 Item item = items.get(indice);
                 teclado.nextLine();
-
 //                System.out.print("Nuevo nombre (" + item.getNombre() + "): ");
 //                item.setNombre(teclado.nextLine());
 //
@@ -77,6 +90,7 @@ public class InventarioImpl implements InventarioService {
         }
     }
 
+    // La función elimina un registro de un item ya creado.
     public void eliminarItem() {
         Inventario inventario = getItems();
         if (inventario.getItems().isEmpty()) {

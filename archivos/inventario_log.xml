@@ -40,4 +40,8 @@
         <dateEvento>2026-06-14T16:18:42.407-06:00</dateEvento>
         <descripcion>Se ha agregago el item Arma</descripcion>
     </evento>
+    <evento>
+        <dateEvento>2026-06-14T22:53:16.661-06:00</dateEvento>
+        <descripcion>Se ha agregago el item Arma</descripcion>
+    </evento>
 </Eventos>

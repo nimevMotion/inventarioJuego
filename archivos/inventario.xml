@@ -14,4 +14,11 @@
         <cantidad>2</cantidad>
         <usos/>
     </item>
+    <item>
+        <nombre>Arma</nombre>
+        <desc>Prueba </desc>
+        <tipo>Arma</tipo>
+        <cantidad>8</cantidad>
+        <usos/>
+    </item>
 </Inventario>
