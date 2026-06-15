@@ -13,5 +13,7 @@ import com.uvm.inventariojuego.model.Item;
 public interface InventarioService {
     
     public boolean agregarItem(Item item);
+
+    public Iterable<Item> getItems();
     
 }
