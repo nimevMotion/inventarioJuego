@@ -1,7 +1,6 @@
 package com.uvm.inventariojuego;
 
 import java.util.Scanner;
-import com.uvm.inventariojuego.model.Item;
 import com.uvm.inventariojuego.services.InventarioService;
 import com.uvm.inventariojuego.services.LoggerService;
 import com.uvm.inventariojuego.services.impl.InventarioImpl;
@@ -16,13 +15,6 @@ public class InventarioJuego {
         InventarioService inventario = new InventarioImpl();
         LoggerService logger = new LogImpl();
 
-//        for(Item item : inventario.getItems())
-//        {
-//            System.out.println("Nombre: " + item.getNombre());
-//            System.out.println("Descripcion: " + item.getDesc());
-//            System.out.println("Tipo: " + item.getTipo());
-//            System.out.println("Cantidad: " + item.getCantidad());
-//        }
         int botonSalir = 0;
         int opcion = 0;
 
@@ -63,7 +55,6 @@ public class InventarioJuego {
                                     }
                                     case 3 -> {
                                         inventario.eliminarItem();
-
                                     }
                                     case 4 ->
                                         enSubMenu = false;

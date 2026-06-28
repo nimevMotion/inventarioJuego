@@ -1,30 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <Eventos>
     <evento>
-        <dateEvento>2026-06-10T20:08:58.534-06:00</dateEvento>
-        <descripcion>-&gt; [Pocion Roja]: Recupera 50 puntos de salud.</descripcion>
-    </evento>
-    <evento>
-        <dateEvento>2026-06-10T20:09:55.062-06:00</dateEvento>
-        <descripcion>-&gt; [Pocion Roja]: Recupera 50 puntos de salud.</descripcion>
-    </evento>
-    <evento>
-        <dateEvento>2026-06-10T20:09:56.920-06:00</dateEvento>
-        <descripcion>-&gt; [Pocion Roja]: Recupera 50 puntos de salud.</descripcion>
-    </evento>
-    <evento>
-        <dateEvento>2026-06-10T20:09:59.862-06:00</dateEvento>
-        <descripcion>-&gt; [Pocion Roja]: Recupera 50 puntos de salud.</descripcion>
-    </evento>
-    <evento>
-        <dateEvento>2026-06-10T20:10:01.280-06:00</dateEvento>
-        <descripcion>-&gt; [Pocion Roja]: Recupera 50 puntos de salud.</descripcion>
-    </evento>
-    <evento>
-        <dateEvento>2026-06-10T20:10:02.688-06:00</dateEvento>
-        <descripcion>-&gt; [Pocion Roja]: Recupera 50 puntos de salud.</descripcion>
-    </evento>
-    <evento>
         <dateEvento>2026-06-14T15:19:11.600-06:00</dateEvento>
         <descripcion>Se ha agregago el item Arma</descripcion>
     </evento>
@@ -43,5 +19,45 @@
     <evento>
         <dateEvento>2026-06-14T22:53:16.661-06:00</dateEvento>
         <descripcion>Se ha agregago el item Arma</descripcion>
+    </evento>
+    <evento>
+        <dateEvento>2026-06-16T14:53:59.973-06:00</dateEvento>
+        <descripcion>Se ha agregago el item Mazo</descripcion>
+    </evento>
+    <evento>
+        <dateEvento>2026-06-16T14:57:01.239-06:00</dateEvento>
+        <descripcion>Se ha agregago el item Armadura elegante</descripcion>
+    </evento>
+    <evento>
+        <dateEvento>2026-06-16T15:03:35.342-06:00</dateEvento>
+        <descripcion>Se ha agregago el item Escudo azul</descripcion>
+    </evento>
+    <evento>
+        <dateEvento>2026-06-28T14:00:42.800-06:00</dateEvento>
+        <descripcion>Se ha agregago el item Arma</descripcion>
+    </evento>
+    <evento>
+        <dateEvento>2026-06-28T14:07:52.823-06:00</dateEvento>
+        <descripcion>Se ha agregago el item Ballesta</descripcion>
+    </evento>
+    <evento>
+        <dateEvento>2026-06-28T14:08:06.843-06:00</dateEvento>
+        <descripcion>Se modifica el item Espadon</descripcion>
+    </evento>
+    <evento>
+        <dateEvento>2026-06-28T14:10:44.192-06:00</dateEvento>
+        <descripcion>Se modifica el item Espadon</descripcion>
+    </evento>
+    <evento>
+        <dateEvento>2026-06-28T14:12:16.408-06:00</dateEvento>
+        <descripcion>Se modifica el item Espadon</descripcion>
+    </evento>
+    <evento>
+        <dateEvento>2026-06-28T14:15:31.624-06:00</dateEvento>
+        <descripcion>Se modifica el item Espadon</descripcion>
+    </evento>
+    <evento>
+        <dateEvento>2026-06-28T14:23:02.809-06:00</dateEvento>
+        <descripcion>Se modifica el item Espadon</descripcion>
     </evento>
 </Eventos>

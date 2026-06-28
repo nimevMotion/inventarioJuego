@@ -4,7 +4,7 @@
         <nombre>Espadon</nombre>
         <desc>Cuchillo</desc>
         <tipo>Arma</tipo>
-        <cantidad>6</cantidad>
+        <cantidad>8</cantidad>
         <usos/>
     </item>
     <item>
@@ -18,7 +18,35 @@
         <nombre>Arma</nombre>
         <desc>Prueba </desc>
         <tipo>Arma</tipo>
-        <cantidad>8</cantidad>
+        <cantidad>9</cantidad>
+        <usos/>
+    </item>
+    <item>
+        <nombre>Mazo</nombre>
+        <desc>Arma mitica</desc>
+        <tipo>Arma</tipo>
+        <cantidad>4</cantidad>
+        <usos/>
+    </item>
+    <item>
+        <nombre>Armadura elegante</nombre>
+        <desc>Armadura de proteccion fisica</desc>
+        <tipo>aArmadura</tipo>
+        <cantidad>6</cantidad>
+        <usos/>
+    </item>
+    <item>
+        <nombre>Escudo azul</nombre>
+        <desc>Escudo de proteccion magica</desc>
+        <tipo>Arma</tipo>
+        <cantidad>1</cantidad>
+        <usos/>
+    </item>
+    <item>
+        <nombre>Ballesta</nombre>
+        <desc>Arma antigua de gran impacto</desc>
+        <tipo>Arma</tipo>
+        <cantidad>2</cantidad>
         <usos/>
     </item>
 </Inventario>

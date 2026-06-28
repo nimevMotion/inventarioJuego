@@ -38,7 +38,6 @@ public class InventarioImpl implements InventarioService {
             item.setCantidad(teclado.nextInt());
             inventario.agregarItem(item);
             System.out.println("Objeto registrado correctamente.");
-            inventario.agregarItem(item);
             log.salvarEvento("Se ha agregago el item " + item.getNombre());
             return fileService.salvarIventario(inventario);
         }
@@ -67,25 +66,17 @@ public class InventarioImpl implements InventarioService {
             if (indice >= 0 && indice < items.size()) {
                 Item item = items.get(indice);
                 teclado.nextLine();
-//                System.out.print("Nuevo nombre (" + item.getNombre() + "): ");
-//                item.setNombre(teclado.nextLine());
-//
-//                System.out.print("Nueva descripcion (" + item.getDesc() + "): ");
-//                item.setDesc(teclado.nextLine());
-//
-//                System.out.print("Nuevo tipo (" + item.getTipo() + "): ");
-//                item.setTipo(teclado.nextLine());
                 System.out.println("Que cantidad quieres agregar del objeto " + item.getNombre() + ":");
-                item.setCantidad(teclado.nextInt());
-
-                inventario.agregarItem(item);
+                int cantidad = teclado.nextInt();
+                System.out.println(cantidad);
+                System.out.println(cantidad + item.getCantidad());
+                item.setCantidad( cantidad + item.getCantidad());
+                log.salvarEvento("Se modifica el item " + item.getNombre());
+//                inventario.agregarItem(item);
                 fileService.salvarIventario(inventario);
                 System.out.println("-> Objeto modificado correctamente.");
-//                teclado.close();
-                return;
             } else {
                 System.out.println("-> Numero invalido.");
-                return;
             }
         }
     }
@@ -108,10 +99,9 @@ public class InventarioImpl implements InventarioService {
             int indice = teclado.nextInt();
 
             if (indice >= 0 && indice < items.size()) {
-//                String nombre = items.get(indice).getNombre();
-//                items.remove(indice);
                 inventario.eliminarItem(inventario.getItems().get(indice));
                 System.out.println("-> " + inventario.getItems().get(indice) + " eliminado correctamente.");
+                log.salvarEvento("Se elimina item " + inventario.getItems().get(indice).getNombre());
                 fileService.salvarIventario(inventario);
             } else {
                 System.out.println("-> Numero invalido.");

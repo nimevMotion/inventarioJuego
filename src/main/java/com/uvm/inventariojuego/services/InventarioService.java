@@ -5,7 +5,6 @@
 package com.uvm.inventariojuego.services;
 
 import com.uvm.inventariojuego.model.Inventario;
-import com.uvm.inventariojuego.model.Item;
 
 /**
  *
