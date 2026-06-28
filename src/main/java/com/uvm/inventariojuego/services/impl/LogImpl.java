@@ -13,6 +13,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
+import java.util.ListIterator;
 
 /**
  *
@@ -34,7 +35,6 @@ public class LogImpl implements LoggerService {
             //valida si el archivo existe 
             File log = new File(Constantes.PATH_ARCHIVOS + File.separator + Constantes.FILENAME_LOG);
 
-//            JAXBContext context = JAXBContext.newInstance(Eventos.class);
             JAXBContext context = JAXBConfig.getContext();
 
             if (!log.exists()) {
@@ -44,7 +44,6 @@ public class LogImpl implements LoggerService {
                 eventos = new Eventos();
                 File carpeta = log.getParentFile();
                 carpeta.mkdirs();
-                System.out.println(carpeta.getAbsolutePath());
                 Evento evento = new Evento(new Date(), desc);
 //                evento.setDescripcion(desc);
 //                evento.setDateEvento(new Date());
@@ -63,7 +62,7 @@ public class LogImpl implements LoggerService {
                     String filename = (log.toString()).replace(".xml", "_" + new Date() + ".xml");
                     File oldLog = new File(filename);
                     if (log.renameTo(oldLog)) {
-                        System.out.println("El ha respaldado el historial");
+                        System.out.println("Se ha respaldado el historial");
                     }
                     eventos = new Eventos();
 
@@ -103,12 +102,12 @@ public class LogImpl implements LoggerService {
                 Unmarshaller unmarshaller = context.createUnmarshaller();
                 eventos = (Eventos) unmarshaller.unmarshal(log);
                 
-                Iterator<Evento> it = eventos.getListaEventos().iterator();
+                ListIterator<Evento> it = eventos.getListaEventos().listIterator(eventos.getListaEventos().size());
                 
                 int i = 0;
-                while(it.hasNext())
+                while(it.hasPrevious())
                 {
-                    Evento evento = it.next();
+                    Evento evento = it.previous();
                     if(i > 10)
                         break;
                     
