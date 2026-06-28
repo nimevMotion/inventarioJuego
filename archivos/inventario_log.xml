@@ -60,4 +60,8 @@
         <dateEvento>2026-06-28T14:23:02.809-06:00</dateEvento>
         <descripcion>Se modifica el item Espadon</descripcion>
     </evento>
+    <evento>
+        <dateEvento>2026-06-28T14:30:13.399-06:00</dateEvento>
+        <descripcion>Se elimina item Espadon</descripcion>
+    </evento>
 </Eventos>

@@ -68,11 +68,8 @@ public class InventarioImpl implements InventarioService {
                 teclado.nextLine();
                 System.out.println("Que cantidad quieres agregar del objeto " + item.getNombre() + ":");
                 int cantidad = teclado.nextInt();
-                System.out.println(cantidad);
-                System.out.println(cantidad + item.getCantidad());
                 item.setCantidad( cantidad + item.getCantidad());
                 log.salvarEvento("Se modifica el item " + item.getNombre());
-//                inventario.agregarItem(item);
                 fileService.salvarIventario(inventario);
                 System.out.println("-> Objeto modificado correctamente.");
             } else {
@@ -100,7 +97,7 @@ public class InventarioImpl implements InventarioService {
 
             if (indice >= 0 && indice < items.size()) {
                 inventario.eliminarItem(inventario.getItems().get(indice));
-                System.out.println("-> " + inventario.getItems().get(indice) + " eliminado correctamente.");
+                System.out.println("-> Un item del objeto " + inventario.getItems().get(indice).getNombre() + " ha sido eliminado.");
                 log.salvarEvento("Se elimina item " + inventario.getItems().get(indice).getNombre());
                 fileService.salvarIventario(inventario);
             } else {
